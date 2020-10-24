@@ -1,5 +1,5 @@
 library(ggplot2)
-library(ggrepel)
+#library(ggrepel)
 values <- read.csv('/data/Zip_Zhvi_AllHomes.csv', header = TRUE, fileEncoding = 'UTF-8-BOM')
 rents <- read.csv('/data/Zip_Zri_AllHomesPlusMultifamily_Summary.csv', header = TRUE, fileEncoding = 'UTF-8-BOM')
 
@@ -19,7 +19,7 @@ selection <- merged[merged$State.x == 'MD'
 
 mid <- median(selection$VtoR)
 
-ggplot(selection, aes(x = Zri * 1000, y = VtoR, col = selection$County)) + 
-  geom_text_repel(aes(label = paste(City.x, ' ', RegionName)), size = 3.5) +
+ggplot(selection, aes(x = Zri * 1000, y = VtoR, col = County)) + 
+  geom_text(aes(label = paste(City.x, ' ', RegionName)), size = 3.5) +
   geom_smooth(method = "lm", col = "black", size = 0.5) + 
   labs(title = "Rent Indicies vs. Value:Rent Ratio", subtitle = "by Zip Code", y = "Value:Rent Ratio", x = "Rent Index", col = 'County', caption = "source:    zillow.com/research/data")
