@@ -1,7 +1,7 @@
 library(ggplot2)
 library(ggrepel)
-values <- read.csv('../data/Zip_Zhvi_AllHomes.csv', header = TRUE, fileEncoding = 'UTF-8-BOM')
-rents <- read.csv('../data/Zip_Zri_AllHomesPlusMultifamily_Summary.csv', header = TRUE, fileEncoding = 'UTF-8-BOM')
+values <- read.csv('/data/Zip_Zhvi_AllHomes.csv', header = TRUE, fileEncoding = 'UTF-8-BOM')
+rents <- read.csv('/data/Zip_Zri_AllHomesPlusMultifamily_Summary.csv', header = TRUE, fileEncoding = 'UTF-8-BOM')
 
 values$RegionName <- as.factor(values$RegionName)
 rents$RegionName <- as.factor(rents$RegionName)
